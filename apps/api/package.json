@@ -1,0 +1,12 @@
+{
+  "name": "@boilerplate/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
+  },
+  "dependencies": {
+    "@boilerplate/db": "workspace:*",
+    "hono": "^4.6.16"
+  }
+}
