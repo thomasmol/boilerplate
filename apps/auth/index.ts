@@ -6,17 +6,18 @@ import { subjects } from "./subjects"
 import { db, users } from "@boilerplate/db"
 import { eq } from "drizzle-orm"
 
-async function getUser(email: string) {
+async function getOrCreateUser(email: string) {
   const user = await db.query.users.findFirst({
     where: eq(users.email, email),
   })
   if (!user) {
-    throw new Error("User not found")
+    const newUser = await db.insert(users).values({ email }).returning()
+    return newUser[0].id
   }
   return user.id
 }
 
-export default issuer({
+const auth = issuer({
   subjects,
   storage: MemoryStorage({
     persist: "./persist.json",
@@ -36,9 +37,13 @@ export default issuer({
   success: async (ctx, value) => {
     if (value.provider === "password") {
       return ctx.subject("user", {
-        id: await getUser(value.email),
+        id: await getOrCreateUser(value.email),
       })
     }
     throw new Error("Invalid provider")
   },
 })
+export default {
+  port: 3001,
+  fetch: auth.fetch,
+}
