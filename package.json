@@ -10,8 +10,10 @@
     "db:generate": "drizzle-kit generate:pg",
     "db:push": "drizzle-kit push:pg",
     "db:studio": "drizzle-kit studio",
-    "dev": "bun run --cwd apps/api dev",
-    "auth": "bun run --cwd apps/auth dev"
+    "api:dev": "bun run --cwd packages/api dev",
+    "auth:dev": "bun run --cwd apps/auth dev",
+    "app:dev": "bun run --cwd apps/app dev",
+    "www:dev": "bun run --cwd apps/www dev"
   },
   "devDependencies": {
     "@types/bun": "latest",
