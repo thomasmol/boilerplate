@@ -1,10 +1,10 @@
 {
-  "name": "@boilerplate/auth",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "@boilerplate/db": "workspace:*",
-    "better-auth": "^1.4.0",
-    "zod": "catalog:"
-  }
+	"name": "@boilerplate/auth",
+	"private": true,
+	"type": "module",
+	"dependencies": {
+		"@boilerplate/db": "workspace:*",
+		"better-auth": "catalog:",
+		"zod": "catalog:"
+	}
 }

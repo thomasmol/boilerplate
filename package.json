@@ -1,36 +1,33 @@
 {
-  "name": "boilerplate",
-  "private": true,
-  "type": "module",
-  "workspaces": {
-    "packages": [
-      "apps/*",
-      "packages/*"
-    ],
-    "catalog": {
-      "@scalar/hono-api-reference": "^0.9.37",
-      "better-auth": "^1.4.0",
-      "hono": "^4.11.7",
-      "zod": "^4.3.6",
-      "@hono/zod-openapi": "^1.2.0",
-      "drizzle-zod": "^0.8.3"
-    }
-  },
-  "scripts": {
-    "db:generate": "drizzle-kit generate:pg",
-    "db:push": "drizzle-kit push:pg",
-    "db:studio": "drizzle-kit studio",
-    "api:dev": "bun run --cwd packages/api dev",
-    "auth:dev": "bun run --cwd apps/auth dev",
-    "app:dev": "bun run --cwd apps/app dev",
-    "www:dev": "bun run --cwd apps/www dev"
-  },
-  "devDependencies": {
-    "@types/bun": "latest",
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "oxfmt": "^0.27.0",
-    "oxlint": "^1.42.0"
-  }
+	"name": "boilerplate",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"apps/*",
+			"packages/*"
+		],
+		"catalog": {
+			"@scalar/hono-api-reference": "^0.9.37",
+			"better-auth": "^1.4.0",
+			"hono": "^4.11.7",
+			"zod": "^4.3.6",
+			"@hono/zod-openapi": "^1.2.0"
+		}
+	},
+	"type": "module",
+	"scripts": {
+		"db:generate": "drizzle-kit generate:pg",
+		"db:studio": "drizzle-kit studio",
+		"api:dev": "bun run --cwd apps/api dev",
+		"app:dev": "bun run --cwd apps/app dev",
+		"www:dev": "bun run --cwd apps/www dev"
+	},
+	"dependencies": {
+		"oxfmt": "^0.27.0",
+		"oxlint": "^1.42.0"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^5"
+	}
 }

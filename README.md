@@ -17,4 +17,3 @@ This is a monorepo for a full-stack project. It is not ready for production yet.
 `packages/db` is a package that is used to interact with your database. It is based on Drizzle ORM. It handles schema definitions, migrations, and connections to your database.
 
 Add any other packages that you need for your project.
-

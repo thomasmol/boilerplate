@@ -1,0 +1,13 @@
+{
+	"plugins": ["typescript"],
+	"categories": {},
+	"rules": {
+		"typescript/no-unused-vars": "error",
+		"import/order": "error"
+	},
+	"env": {
+		"builtin": true
+	},
+	"globals": {},
+	"ignorePatterns": ["**/node_modules/**", "**/dist/**"]
+}
