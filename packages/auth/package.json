@@ -2,11 +2,9 @@
   "name": "@boilerplate/auth",
   "private": true,
   "type": "module",
-  "scripts": {
-    "dev": "bun run --hot index.ts"
-  },
   "dependencies": {
     "@boilerplate/db": "workspace:*",
+    "better-auth": "^1.4.0",
     "zod": "catalog:"
   }
 }
