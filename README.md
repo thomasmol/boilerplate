@@ -1,4 +1,4 @@
-# boilerplate (not ready for production yet)
+# Boilerplate Mono repo
 
 This is a monorepo for a full-stack project. It is not ready for production yet. This repo should serve as a starting point for you next project. It should be able to handle any type of project, web, mobile, desktop, etc, because services are separated into packages and apps.
 

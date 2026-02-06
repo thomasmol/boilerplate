@@ -1,8 +1,12 @@
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
-import * as schema from './schema';
+import { drizzle } from "drizzle-orm/bun-sql";
+import * as schema from "./schema";
+import { relations } from "./relations";
+export * from "./schema";
 
-const client = postgres(process.env.DATABASE_URL!);
-export const db = drizzle(client, { schema });
-
-export * from './schema';
+export const db = drizzle({
+  connection: {
+    url: Bun.env.PRIVATE_DATABASE_URL!,
+  },
+  schema,
+  relations,
+});
