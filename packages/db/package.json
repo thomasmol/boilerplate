@@ -6,7 +6,7 @@
   "main": "index.ts",
   "types": "index.ts",
   "dependencies": {
-    "drizzle-orm": "^0.38.4",
-    "postgres": "^3.4.5"
+    "drizzle-orm": "latest",
+    "zod": "catalog:"
   }
 }
