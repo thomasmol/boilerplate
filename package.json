@@ -11,7 +11,9 @@
 			"better-auth": "^1.4.0",
 			"hono": "^4.11.7",
 			"zod": "^4.3.6",
-			"@hono/zod-openapi": "^1.2.0"
+			"@hono/zod-openapi": "^1.2.0",
+			"drizzle-kit": "1.0.0-beta.15-859cf75",
+			"drizzle-orm": "1.0.0-beta.15-859cf75"
 		}
 	},
 	"type": "module",
@@ -22,12 +24,10 @@
 		"app:dev": "bun run --cwd apps/app dev",
 		"www:dev": "bun run --cwd apps/www dev"
 	},
-	"dependencies": {
-		"oxfmt": "^0.27.0",
-		"oxlint": "^1.42.0"
-	},
 	"devDependencies": {
 		"@types/bun": "latest",
+		"oxfmt": "^0.27.0",
+		"oxlint": "^1.42.0",
 		"typescript": "^5"
 	}
 }

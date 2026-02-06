@@ -3,11 +3,25 @@
 	"private": true,
 	"type": "module",
 	"main": "src/index.ts",
+	"types": "src/index.ts",
+	"exports": {
+		"./hc": {
+			"import": {
+				"types": "./dist/hc.d.ts",
+				"default": "./dist/hc.js"
+			}
+		}
+	},
 	"scripts": {
 		"dev": "bun run --hot src/index.ts"
 	},
 	"dependencies": {
+		"@boilerplate/auth": "workspace:*",
 		"@boilerplate/db": "workspace:*",
-		"hono": "^4.6.16"
+		"@hono/zod-openapi": "catalog:",
+		"@scalar/hono-api-reference": "catalog:",
+		"better-auth": "catalog:",
+		"hono": "catalog:",
+		"zod": "catalog:"
 	}
 }
