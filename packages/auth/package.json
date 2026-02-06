@@ -7,8 +7,6 @@
   },
   "dependencies": {
     "@boilerplate/db": "workspace:*",
-    "@boilerplate/api": "workspace:*",
-    "@openauthjs/openauth": "^0.3.6",
-    "zod": "^3.24.1"
+    "zod": "catalog:"
   }
 }
