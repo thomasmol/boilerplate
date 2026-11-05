@@ -8,6 +8,5 @@ export default {
 		url: process.env.DATABASE_URL!
 	},
 	// Optionally, if you want to organize migrations by feature
-	verbose: true,
-	strict: true
+	verbose: true
 } satisfies Config;

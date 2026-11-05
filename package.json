@@ -7,27 +7,42 @@
 			"packages/*"
 		],
 		"catalog": {
-			"@scalar/hono-api-reference": "^0.9.37",
-			"better-auth": "^1.4.0",
-			"hono": "^4.11.7",
-			"zod": "^4.3.6",
-			"@hono/zod-openapi": "^1.2.0",
-			"drizzle-kit": "1.0.0-beta.15-859cf75",
-			"drizzle-orm": "1.0.0-beta.15-859cf75"
+			"@scalar/hono-api-reference": "^0.12.18",
+			"better-auth": "^1.7.18",
+			"hono": "^4.13.16",
+			"zod": "^4.6.7",
+			"@hono/zod-openapi": "^1.6.3",
+			"drizzle-kit": "1.0.0-rc.5",
+			"drizzle-orm": "1.0.0-rc.5"
+		},
+		"catalogs": {
+			"svelte": {
+				"typescript": "^6.0.3"
+			}
 		}
 	},
 	"type": "module",
 	"scripts": {
-		"db:generate": "drizzle-kit generate:pg",
-		"db:studio": "drizzle-kit studio",
+		"db:generate": "bun run --cwd packages/db generate",
+		"db:migrate": "bun run --cwd packages/db migrate",
+		"db:studio": "bun run --cwd packages/db studio",
 		"api:dev": "bun run --cwd apps/api dev",
 		"app:dev": "bun run --cwd apps/app dev",
-		"www:dev": "bun run --cwd apps/www dev"
+		"app:build": "bun run --cwd apps/app build",
+		"app:start": "bun run --cwd apps/app start",
+		"check": "bun run --parallel --filter '@boilerplate/*' --if-present check",
+		"format": "oxfmt .",
+		"format:check": "oxfmt --check .",
+		"lint": "oxlint .",
+		"lint:fix": "oxlint --fix .",
+		"infra": "docker compose up -d",
+		"infra:down": "docker compose down"
 	},
 	"devDependencies": {
-		"@types/bun": "latest",
-		"oxfmt": "^0.27.0",
-		"oxlint": "^1.42.0",
-		"typescript": "^5"
-	}
+		"@types/bun": "^1.4.4",
+		"oxfmt": "^0.76.0",
+		"oxlint": "^1.91.0",
+		"typescript": "^7.0.2"
+	},
+	"packageManager": "bun@1.4.4"
 }

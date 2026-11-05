@@ -1,8 +1,8 @@
 import { OpenAPIHono, createRoute } from '@hono/zod-openapi';
 import { HTTPException } from 'hono/http-exception';
 import { z } from '@hono/zod-openapi';
-import { handleZodError, errorResponses } from '@lib/errors';
-import { exampleSchema } from '@schemas/example';
+import { handleZodError, errorResponses } from '../lib/errors';
+import { exampleSchema } from '../schemas/example';
 import { getExample } from './example.service';
 
 const app = new OpenAPIHono({
@@ -33,7 +33,7 @@ const getExampleRoute = createRoute({
 	}
 });
 
-app.openapi(getExampleRoute, async (c) => {
+const routes = app.openapi(getExampleRoute, async (c) => {
 	const { id } = c.req.valid('param');
 	console.log(id);
 	const example = await getExample();
@@ -45,4 +45,4 @@ app.openapi(getExampleRoute, async (c) => {
 	return c.json(example, 200);
 });
 
-export { app as exampleRoutes };
+export { routes as exampleRoutes };

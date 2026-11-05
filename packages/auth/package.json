@@ -2,6 +2,9 @@
 	"name": "@boilerplate/auth",
 	"private": true,
 	"type": "module",
+	"scripts": {
+		"check": "tsc --noEmit -p tsconfig.json"
+	},
 	"dependencies": {
 		"@boilerplate/db": "workspace:*",
 		"better-auth": "catalog:",

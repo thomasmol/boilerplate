@@ -1,18 +1,37 @@
-# Boilerplate Mono repo
+# Boilerplate monorepo
 
-This is a monorepo for a full-stack project. This repo should serve as a starting point for you next project. It should be able to handle any type of project, web, mobile, desktop, etc, because services are separated into packages and apps.
+A starting point for developers building full-stack applications. It includes a web app, an API, and shared packages for authentication and database access.
 
-## Apps
+Use it to start a new project with a reusable structure and shared tooling. Apps and packages stay separate while dependencies and development commands are managed in one repository.
 
-`apps/app` is a SvelteKit app that is used to serve the frontend for your webapp.
+## Setup
 
+Requires Bun 1.4+ and Docker Compose.
 
-`apps/api` is a Hono based server for a public API for your users.
+For a new checkout, run from the repository root:
 
-## Packages
+```sh
+bun install
+cp .env.example .env
+```
 
-`packages/api` is an better-auth package to create an auth config.
+Configure `.env` using the workspace instructions below.
 
-`packages/db` is a package that is used to interact with your database. It is based on Drizzle ORM. It handles schema definitions, migrations, and connections to your database.
+## Commands
 
-Add any other packages that you need for your project.
+Run commands from the repository root:
+
+- `bun run infra`: start local services
+- `bun run infra:down`: stop local services
+- `bun run check`: run workspace type checks
+- `bun run lint`: lint source
+- `bun run lint:fix`: apply lint fixes
+- `bun run format`: format files
+- `bun run format:check`: inspect formatting
+
+## Workspaces
+
+- [apps/app](apps/app/AGENTS.md)
+- [apps/api](apps/api/AGENTS.md)
+- [packages/auth](packages/auth/AGENTS.md)
+- [packages/db](packages/db/AGENTS.md)

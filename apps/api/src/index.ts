@@ -1,11 +1,10 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { csrf } from 'hono/csrf';
 import { logger } from 'hono/logger';
-import { db } from '@boilerplate/db';
-import { sql } from 'drizzle-orm';
+import { db, sql } from '@boilerplate/db';
 import { prettyJSON } from 'hono/pretty-json';
 import { requestId } from 'hono/request-id';
-import { handleZodError } from '@lib/errors';
+import { handleZodError } from './lib/errors';
 import { Scalar } from '@scalar/hono-api-reference';
 import { exampleRoutes } from './example/example.routes';
 
@@ -60,9 +59,11 @@ app.doc('/openapi.json', (c) => ({
 
 app.get('/reference', Scalar({ url: '/openapi.json', showDeveloperTools: 'never' }));
 
-app.route('/examples', exampleRoutes);
+const routes = app.route('/examples', exampleRoutes);
+
+export type AppType = typeof routes;
 
 export default {
 	port: process.env.PORT || 3001,
-	fetch: app.fetch
+	fetch: routes.fetch
 };

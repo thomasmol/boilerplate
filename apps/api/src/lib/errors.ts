@@ -6,8 +6,8 @@ import {
 	paymentRequiredSchema,
 	rateLimitedSchema,
 	unauthorizedSchema
-} from '@schemas/errors';
-import { Context } from 'hono';
+} from '../schemas/errors';
+import type { Context } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 
 export const errorResponses = {
